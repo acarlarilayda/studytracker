@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>StudyTracker</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<main class="dashboard-container">
+  <section class="task-card">
+    <h2>Task Manager</h2>
+    <p class="subtitle">Add your daily study tasks and manage them easily.</p>
+
+    <div class="stats-box">
+      <div class="stat-item">
+        <span>Total Tasks</span>
+        <strong id="totalTasks">0</strong>
+      </div>
+      <div class="stat-item">
+        <span>Completed</span>
+        <strong id="completedTasks">0</strong>
+      </div>
+    </div>
+
+    <div class="task-form">
+      <input type="text" id="taskInput" placeholder="Enter a task">
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="actions-row">
+      <button class="clear-btn" onclick="clearAllTasks()">Clear All</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </section>
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
