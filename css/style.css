@@ -371,3 +371,28 @@ nav a:hover {
 .clear-btn:hover {
   opacity: 0.92;
 }
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-left input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.task-form input[type="datetime-local"] {
+  padding: 14px 16px;
+  border: 1px solid #d0d7e2;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #fbfcfe;
+}
+
+.task-form input[type="datetime-local"]:focus {
+  border-color: #4da3ff;
+  box-shadow: 0 0 0 4px rgba(77, 163, 255, 0.14);
+  outline: none;
+}

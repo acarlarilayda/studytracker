@@ -31,11 +31,11 @@
         <strong id="completedTasks">0</strong>
       </div>
     </div>
-
-    <div class="task-form">
-      <input type="text" id="taskInput" placeholder="Enter a task">
-      <button onclick="addTask()">Add Task</button>
-    </div>
+ <div class="task-form">
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <input type="datetime-local" id="taskTime">
+  <button onclick="addTask()">Add Task</button>
+</div>
 
     <div class="actions-row">
       <button class="clear-btn" onclick="clearAllTasks()">Clear All</button>

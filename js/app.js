@@ -6,7 +6,10 @@ window.onload = function () {
 
 function addTask() {
   const input = document.getElementById("taskInput");
+  const timeInput = document.getElementById("taskTime");
+
   const taskText = input.value.trim();
+  const taskTime = timeInput.value;
 
   if (taskText === "") {
     alert("Please enter a task!");
@@ -15,12 +18,15 @@ function addTask() {
 
   tasks.push({
     text: taskText,
+    time: taskTime,
     completed: false,
     createdAt: new Date().toLocaleString()
   });
 
   localStorage.setItem("tasks", JSON.stringify(tasks));
+
   input.value = "";
+  timeInput.value = "";
   displayTasks();
 }
 
@@ -40,6 +46,19 @@ function displayTasks() {
 
     const li = document.createElement("li");
 
+    const leftBox = document.createElement("div");
+    leftBox.className = "task-left";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed;
+
+    checkbox.onchange = function () {
+      tasks[index].completed = checkbox.checked;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      displayTasks();
+    };
+
     const taskInfo = document.createElement("div");
     taskInfo.className = "task-info";
 
@@ -53,27 +72,25 @@ function displayTasks() {
 
     const taskDate = document.createElement("small");
     taskDate.className = "task-date";
-    taskDate.textContent = "Added: " + (task.createdAt || "Unknown time");
+    taskDate.textContent =
+      "Task time: " + (task.time || "Not selected") +
+      " | Added: " + (task.createdAt || "Unknown time");
 
     taskInfo.appendChild(taskText);
     taskInfo.appendChild(taskDate);
 
-    taskInfo.onclick = function () {
-      tasks[index].completed = !tasks[index].completed;
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-      displayTasks();
-    };
+    leftBox.appendChild(checkbox);
+    leftBox.appendChild(taskInfo);
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
-    deleteBtn.onclick = function (e) {
-      e.stopPropagation();
+    deleteBtn.onclick = function () {
       tasks.splice(index, 1);
       localStorage.setItem("tasks", JSON.stringify(tasks));
       displayTasks();
     };
 
-    li.appendChild(taskInfo);
+    li.appendChild(leftBox);
     li.appendChild(deleteBtn);
     list.appendChild(li);
   });
