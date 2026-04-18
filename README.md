@@ -21,6 +21,7 @@ The aim of this project is to improve time management skills and provide a simpl
 
 ## Deployment
 This project is hosted on GitHub and can be accessed through the repository.
-## Screenshots
-![Uploading Ekran Resmi 2026-04-18 22.07.23.png…]()
 
+## Screenshots
+
+![Dashboard](images/dashboard.png)
